@@ -1,0 +1,9 @@
+<svg width="520" height="620" viewBox="0 0 520 620" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Ilustracao de paisagem em arco</title>
+  <desc id="desc">Arco azul claro com nuvem branca e colinas verdes.</desc>
+  <path d="M40 240C40 129.543 129.543 40 240 40H280C390.457 40 480 129.543 480 240V580H40V240Z" fill="#C9EEFF"/>
+  <path d="M40 440C128 430 153 462 250 451C344 440 384 457 480 498V580H40V440Z" fill="#C9E87A"/>
+  <path d="M40 522C126 508 158 470 256 475C363 480 400 505 480 506V580H40V522Z" fill="#88AA00"/>
+  <path d="M188 195C202 163 237 142 274 151C309 159 333 188 334 222H388C411 222 430 241 430 264C430 287 411 306 388 306H150C119 306 94 281 94 250C94 219 119 194 150 194C163 194 175 198 188 195Z" fill="white"/>
+  <path d="M403 20C322 -4 228 8 154 64" stroke="#75AED6" stroke-width="4" stroke-linecap="round"/>
+</svg>
