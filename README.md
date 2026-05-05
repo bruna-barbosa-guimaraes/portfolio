@@ -1,4 +1,4 @@
-# portfolio
+# Portfólio
 Portfólio pessoal desenvolvido como um sistema fullstack completo. 
 
 A arquitetura foi desenhada com frontend e backend desacoplados, implementando autenticação com JWT, controle de acesso e um painel administrativo completo para gerenciamento dinâmico de projetos e experiências. Tudo estruturado com foco em escalabilidade, manutenibilidade e clareza de responsabilidades.
