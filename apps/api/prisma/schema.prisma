@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum ExperienceType {
+  job
+  education
+  course
+}
+
+model User {
+  id           String       @id @default(cuid())
+  name         String
+  email        String       @unique
+  passwordHash String       @map("password_hash")
+  createdAt    DateTime     @default(now()) @map("created_at")
+  updatedAt    DateTime     @updatedAt @map("updated_at")
+  experiences  Experience[]
+  projects     Project[]
+
+  @@map("users")
+}
+
+model Experience {
+  id                   String         @id @default(cuid())
+  title                String
+  companyOrInstitution String         @map("company_or_institution")
+  description          String         @db.Text
+  startDate            DateTime       @map("start_date")
+  endDate              DateTime?      @map("end_date")
+  type                 ExperienceType
+  userId               String         @map("user_id")
+  user                 User           @relation(fields: [userId], references: [id])
+  createdAt            DateTime       @default(now()) @map("created_at")
+  updatedAt            DateTime       @updatedAt @map("updated_at")
+  deletedAt            DateTime?      @map("deleted_at")
+
+  @@index([userId])
+  @@index([type])
+  @@map("experiences")
+}
+
+model Project {
+  id           String    @id @default(cuid())
+  title        String
+  description  String    @db.Text
+  technologies Json
+  githubUrl    String?   @map("github_url")
+  demoUrl      String?   @map("demo_url")
+  imageUrl     String?   @map("image_url")
+  userId       String    @map("user_id")
+  user         User      @relation(fields: [userId], references: [id])
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+  deletedAt    DateTime? @map("deleted_at")
+
+  @@index([userId])
+  @@map("projects")
+}
