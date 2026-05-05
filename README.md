@@ -1,2 +1,8 @@
 # portfolio
-Portfólio pessoal fullstack criado para ir além de uma vitrine. O projeto possui frontend em Next.js e backend em Nest.js, com autenticação via JWT, CRUD de projetos e experiências, e arquitetura desacoplada. Foi desenvolvido com foco em boas práticas, clareza arquitetural e evolução futura.
+Portfólio pessoal desenvolvido como um sistema fullstack completo. 
+
+A arquitetura foi desenhada com frontend e backend desacoplados, implementando autenticação com JWT, controle de acesso e um painel administrativo completo para gerenciamento dinâmico de projetos e experiências. Tudo estruturado com foco em escalabilidade, manutenibilidade e clareza de responsabilidades.
+
+No backend, utilizei NestJS com Prisma ORM para garantir uma base sólida de regras de negócio e persistência. No frontend, Next.js entrega performance e uma experiência fluida ao usuário.
+
+Mesmo sendo um portfólio pessoal, o sistema foi projetado como multi-user ready, refletindo preocupações reais de engenharia desde a modelagem até a organização do código.
