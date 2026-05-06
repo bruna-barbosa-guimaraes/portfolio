@@ -12,6 +12,8 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+RUN apk add --no-cache openssl
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY package.json package-lock.json tsconfig.base.json ./
 COPY apps/api ./apps/api
@@ -26,7 +28,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3333
 
-RUN apk add --no-cache openssl1.1-compat
+RUN apk add --no-cache openssl
 
 COPY --from=builder /app/package.json /app/package-lock.json ./
 COPY --from=builder /app/node_modules ./node_modules
