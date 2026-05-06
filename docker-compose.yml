@@ -3,18 +3,17 @@ services:
     image: mysql:8.0
     container_name: portfolio-db
     restart: unless-stopped
-    env_file: .env
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
-      - "3309:3309"
+      - "3309:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot_password"]
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$${MYSQL_ROOT_PASSWORD}"]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -25,7 +24,6 @@ services:
       dockerfile: apps/api/Dockerfile
     container_name: portfolio-api
     restart: unless-stopped
-    env_file: .env
     depends_on:
       db:
         condition: service_healthy
@@ -57,7 +55,6 @@ services:
       API_INTERNAL_URL: ${API_INTERNAL_URL}
     container_name: portfolio-web
     restart: unless-stopped
-    env_file: .env
     depends_on:
       - api
     ports:

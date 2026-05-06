@@ -132,7 +132,8 @@ URLs:
 
 - Web: `http://localhost:3000`
 - API: `http://localhost:3333`
-- MySQL: `localhost:3306`
+- MySQL pelo host: `localhost:3309`
+- MySQL entre containers: `db:3306`
 
 Para criar os dados iniciais depois que os containers estiverem de pe:
 
@@ -142,7 +143,7 @@ docker compose exec api npm run seed --workspace apps/api
 
 Variaveis principais no `docker-compose.yml`:
 
-- `DATABASE_URL`: conexao interna da API com o MySQL.
+- `DATABASE_URL`: conexao interna da API com o MySQL. No Docker, use `db:3306`, mesmo que a porta exposta no host seja `3309`.
 - `JWT_SECRET`: segredo para assinatura dos tokens.
 - `NEXT_PUBLIC_API_URL`: URL usada pelo navegador.
 - `API_INTERNAL_URL`: URL usada pelo Next.js dentro da rede Docker.
